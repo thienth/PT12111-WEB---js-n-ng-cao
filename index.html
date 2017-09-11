@@ -7,6 +7,21 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	javascript nang cao
+	
+
+	<!-- <script src="main.js"></script> -->
+	<script>
+		var canhA = prompt("Nhap gia tri canh A: ");
+		var canhB = prompt("Nhap gia tri canh B: ");
+		var canhC = prompt("Nhap gia tri canh C: ");
+		// kiem tra xem co hinh thanh tam giac hay khong
+		if(canhA+canhB>canhC && canhA+canhC>canhB){
+			console.log('Co hinh thanh tam giac');
+			var chuVi = canhA+canhC;
+			console.log('Chu vi: ' + chuVi);
+		}else{
+			console.log('Khong hinh thanh tam giac');
+		}
+	</script>
 </body>
 </html>
