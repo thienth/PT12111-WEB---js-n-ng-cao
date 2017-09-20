@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		.bg-green{
+			background: green;
+		}
+		.bg-red{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<h2 id="idTarget"><strong>chungnq</strong> xau trai</h2>
+
+	<div class="classTarget bg-red" style="width: 50%; margin: 10px 0; height: 100px;">
+		
+	</div>
+
+	<div class="classTarget bg-green" style="width: 50%;  margin: 10px 0; height: 100px;">
+		
+	</div>
+	<div>
+		<input type="checkbox" name="" value="" checked> nam
+		<input type="checkbox" name="" value=""> nu
+	</div>
+	<table>
+			<tr id="1">
+				<td>line 1</td>
+				<td>
+				    <button trId="1">Click me</button>
+				</td>
+			</tr>
+			<tr id="2">
+				<td>line 2</td>
+				<td>
+				    <button trId="2">Click me</button>
+				</td>
+			</tr>
+		
+	</table>
+
+
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$('button').click(function(){
+			// var trId = $(this).attr('trId');
+
+			// $('tr#'+trId).remove();
+			console.log($(this).parent().parent().remove());
+		});
+
+
+
+		// Khi toàn bộ tài liệu đã được tải về xong thì bắt đầu chạy code nằm trong function
+		$(document).ready(function(){
+			var str = $('#idTarget').text();
+			$('#idTarget').text('nguyen manh tien');
+			console.log(str);
+
+			// $('#idTarget').text('thienth dep trai');
+			$('.classTarget').on('click', function(){
+				if($(this).hasClass('bg-red')){
+					$(this).removeClass('bg-red');
+					$(this).addClass('bg-green');
+				}else{
+					$(this).removeClass('bg-green');
+					$(this).addClass('bg-red');
+				}
+			});
+			// $('input[type=checkbox]:checked').css('border', '1px solid red');
+		});
+	</script>
+	
+</body>
+</html>
