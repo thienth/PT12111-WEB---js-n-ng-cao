@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- <input type="text" id="target" onkeyup="getText()"> -->
+
+	So A <input id="soA"/>
+	<br>
+	So B <input id="soB"/>
+	<br>
+	So C <input id="soC"/>
+	<br>
+	<button type="button" onclick="tinhTong()">Tinh</button>
+	<h3 id="release"></h3>
+
+	<script>
+
+		function getText(){
+			var textValue = document.getElementById("target").value;
+			document.getElementById("release").innerText = textValue;
+		}
+		
+		// dinh nghia ham
+		function tinhTong(){
+			var soAValue = document.getElementById("soA").value;
+			var soBValue = document.getElementById("soB").value;
+			var soCValue = document.getElementById("soC").value;
+			if(isNaN(soAValue+soBValue+soCValue)){ // isNaN = is not a number
+				document.getElementById("release").innerText = "Cac ky tu ban nhap khong phai la so";
+				return false;
+			}
+
+			document.getElementById("release").innerText = parseInt(soAValue)+parseInt(soBValue)+parseInt(soCValue);
+		}
+
+		// var a = prompt("Nhap so A");
+		// var b = prompt("Nhap so B");
+		// var c = prompt("Nhap so C");
+
+		// var total = tinhTong(a, b, c); // goi ham
+		// if(total === false){
+		// 	document.write("ban nhap ky tu khong phai la so");
+		// }else{
+		// 	document.write(`Tong ${a} + ${b} + ${c} = ${total}`);
+		// }
+
+
+		
+	</script>
+</body>
+</html>
