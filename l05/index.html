@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- <input type="text" id="target" onkeyup="getText()"> -->
+
+	<div>
+		Img 1 <input id=""/>
+		<button type="button">Chon</button>
+	</div>
+	<div>
+		
+		Img 2 <input id=""/><button type="button">Chon</button>
+	</div>
+	<div>
+		
+		Img 3 <input id=""/><button type="button">Chon</button>
+	</div>
+	
+	<h3 id="release">
+		<img src="http://imgs.vietnamnet.vn/Images/2017/02/14/09/20170213174121-hoa-hong-tinh-yeu-dep-035-5.jpg" width="200">
+	</h3>
+
+	<script src="jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('button').on('click', function(){
+				
+				var div = $(this).parent();
+				var input = $(div).find('input');
+				var img = $('#release').find('img');
+				$(img).attr('src', $(input).val());
+			});
+		});
+		
+	</script>
+</body>
+</html>
