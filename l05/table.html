@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>User name</th>
+				<th>Avatar</th>
+				<th>
+					<button type="button" id='create'>Add new</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+              <td>1</td>
+              <td>thienth</td>
+              <td>
+                  <img src="http://imgs.vietnamnet.vn/Images/2017/02/14/09/20170213174121-hoa-hong-tinh-yeu-dep-035-5.jpg" width="200">
+              </td>
+              <td>
+                  <button class='remove'  onclick="remove(this)">Remove</button>
+              </td>
+          </tr>
+		</tbody>
+	</table>
+
+	<script src="jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#create').on('click', function(){
+				var id = prompt('Nhap id');
+				var username = prompt('Nhap username');
+				var avatar = prompt('Nhap avatar');
+				var tr = `
+					<tr>
+		              <td>${id}</td>
+		              <td>${username}</td>
+		              <td>
+		                  <img src="${avatar}" width="200">
+		              </td>
+		              <td>
+		                  <button class='remove' onclick="remove(this)">Remove</button>
+		              </td>
+		          </tr>
+				`;
+				$('tbody').append(tr);
+				// removeRow();
+				
+			});
+			// removeRow();
+		});
+
+		function removeRow(){
+			$('.remove').on('click', function(){
+				var tr = $(this).parent().parent();
+				$(tr).remove();
+			});
+		}
+
+		function remove(e){
+			var tr = $(e).parent().parent();
+			$(tr).remove();
+		}
+
+		
+	</script>
+</body>
+</html>
