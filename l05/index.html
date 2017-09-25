@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		td{
+			width: 40px;
+			height: 40px;
+			font-size: 20px;
+			text-align: center;
+			font-weight: bold;
+		}
+		.txt-red {
+			color: red;
+		}
+		.txt-green{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	
+	<div>
+		<select id="groundSize" onchange="start(this)"></select>
+	</div>
+	<table id="playground" border="1">
+		
+	</table>
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		var yardSize = 0;
+		$(document).ready(function(){
+			var options = ``;
+ 			for (var i = 5; i < 25; i++) {
+				options += `<option value="${i}">
+							${i}x${i}
+							</option>`;
+			}
+			$('#groundSize').append(options);
+		});
+
+		function start(e){
+			yardSize = e.value;
+			var content = ``;
+			for (var i = 0; i < yardSize; i++) {
+				content += `<tr>`;
+				for (var j = 0; j < yardSize; j++) {
+					content += `<td onclick="check(this)"></td>`;
+				}
+				content +=`</tr>`;
+			}
+			$('table#playground').empty();
+			$('table#playground').append(content);
+		}
+
+		var turn = "X";
+		function check(e){
+			if($(e).text() == ""){
+				$(e).text(turn);
+				// turn = turn === "X" ? "O" : "X";
+				if(turn === "X"){
+					$(e).addClass('txt-red');
+					turn = "O";
+				}else{
+					$(e).addClass('txt-green');
+					turn = "X";
+				}
+			}
+		}
+
+
+	</script>
+	
+</body>
+</html>
