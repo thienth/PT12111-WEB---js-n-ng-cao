@@ -78,8 +78,8 @@
 		}
 
 		function checkWinner(e){
-			var xDim = $(e).attr('x');
-			var yDim = $(e).attr('y');
+			var xDim = parseInt($(e).attr('x'));
+			var yDim = parseInt($(e).attr('y'));
 			// check theo hang ngang
 			var listTd = $(`td[y=${yDim}]`);
 			var winnerCount = 0; 
@@ -102,6 +102,23 @@
 					start();
 
 				}
+			}
+
+			// check theo duong cheo trai phai
+			var targetY = 0;
+			var targetX = xDim - yDim;
+			for (var i = 0; i < yardSize; i++) {
+				console.log(`[x=${targetX+i}][y=${targetY+i}]`);
+				$(`[x=${targetX+i}][y=${targetY+i}]`).css('background', 'grey');
+			}
+			
+			// check theo duong cheo phai trai
+			var targetY = 0;
+			var targetX = xDim + yDim;
+			for (var i = 0; i < yardSize; i++) {
+				$(`[x=${targetX}][y=${targetY}]`).css('background', 'grey');
+				targetX--;
+				targetY++;
 			}
 
 		}
