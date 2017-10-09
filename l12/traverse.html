@@ -12,102 +12,40 @@
 		<thead>
 			<tr>
 				<th>
-					<input type="checkbox" name="" value="">
+					<input class="leader" type="checkbox" name="" value="">
 				</th>
 				<th>
 					Name
+				</th>
+				<th>
+					<button type="button" class="btn btn-success">Add</button>
 				</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td>
-					<input type="checkbox" name="" value="">
+					<input class="member" type="checkbox" name="" value="">
 				</td>
 				<td>
 					Lorem ipsum dolor sit amet
+				</td>
+				<td>
+					
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="checkbox" name="" value="">
+					<input class="member" type="checkbox" name="" value="">
 				</td>
 				<td>
 					Lorem ipsum dolor sit amet
 				</td>
-			</tr>
-			<tr>
 				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
+					
 				</td>
 			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" name="" value="">
-				</td>
-				<td>
-					Lorem ipsum dolor sit amet
-				</td>
-			</tr>
+			
 		</tbody>
 	</table>
 	
@@ -115,7 +53,16 @@
 	
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript">
-
+		$('.leader').click(function(){
+			$('.member').prop('checked', 
+					$(this).is(":checked"));
+		});
+		$('.member').click(function(){
+			$('.leader').prop('checked', 
+				$('.member:checked').length 
+						=== $('.member').length);
+			
+		});
 	</script>
 	
 </body>
