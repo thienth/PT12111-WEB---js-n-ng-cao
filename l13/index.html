@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+	<style type="text/css" media="screen">
+		.txt-red{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" class="btn btn-primary">Click me</button>
+	<h2 class="loading hide">loading...</h2>
+	<div id="target">
+		
+	</div>
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('button').click(function(){
+				console.log('start send request...');
+				$.ajax({
+					url: 'get-data.php',
+					method: "get",
+					dataType: "JSON",
+					data: {},
+					beforeSend: function(){
+						$('.loading').removeClass('hide');
+						setInterval(function(){
+							$('.loading').toggleClass('txt-red');
+						}, 200);
+					},
+					complete: function(){
+						$('.loading').addClass('hide');
+					},
+					success: function(rs){
+						console.log('recceive data!');
+						var content = "";
+						rs.forEach(function(student){
+							content +=`<div class="col-xs-4">
+								<h2>${student.name}</h2>
+								<div>
+									<strong>${student.score}</strong>
+								</div>
+								<button type="button" class="btn btn-info">Update</button>
+								<button type="button" class="btn btn-danger">Remove</button>
+							</div>`;
+						});
+						$('#target').append(content);
+					},
+					error: function(err, msg){
+						console.log(msg);
+						debugger;
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
